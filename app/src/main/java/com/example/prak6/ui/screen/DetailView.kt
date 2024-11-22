@@ -30,7 +30,39 @@ fun DatailView(
             .fillMaxWidth(),
         verticalArrangement = Arrangement.spacedBy(8.dp)
     ) {
+        Text("Detail Mahasiswa", fontSize = 20.sp, fontWeight = FontWeight.Bold)
+        Row (
+            modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.SpaceBetween
+        ) {
+            // Menampilkan data Mahasiswa NIM dan Email
+            DetailRow(label = "NIM", value = mahasiswa.nim)
+            DetailRow(label = "Email", value = mahasiswa.email)
+        }
+        // Menampilkan data Mahasiswa Nama
+        DetailRow(label = "Nama", value = mahasiswa.nama)
 
+        Spacer(modifier = Modifier.padding(8.dp))
+
+        // Menampilkan Rencana Studi
+        Text("Rencana Studi", fontSize = 20.sp, fontWeight = FontWeight.Bold)
+        DetailRow(label = "Mata Kuliah", value = rencanaStudi.mataKuliah)
+        DetailRow(label = "Kelas", value = rencanaStudi.kelas)
+
+        Spacer(modifier = Modifier.padding(8.dp))
+
+        Row (
+            modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.Center
+        ){
+            // Tombol Navigasi
+            Button(onClick = onBackButtonClicked) {
+                Text("Kembali")
+            }
+            Spacer(modifier = Modifier.width(16.dp))
+            Button(onClick = onResetButtonClicked) {
+                Text("Reset")
+            }
+        }
     }
 }
-
